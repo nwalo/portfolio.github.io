@@ -1,7 +1,7 @@
 body{
   list-style: none;
   background-image: -webkit-linear-gradient(65deg, rgb(0, 0, 0, 0.5) 50%, #ffe4bd 50%);
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
 }
 
@@ -27,10 +27,6 @@ a{
   color: #cc7f09;
 }
 
-i{
-  color: #cc7f09;
-}
-
 hr{
   width: 90%;
   color: #cc7f09;
@@ -50,10 +46,18 @@ nav ul{
 
 nav li{
   display: inline-block;
-  padding: 10px;
-  margin: 0 10px;
+}
+
+nav li a{
+  display: inline-block;
+  padding: 10px 0 5px;
+  margin: 0 20px;
   font-family: sans-serif;
   font-size: 1.2em;
+}
+
+nav li a:hover{
+  border-bottom: 2px solid #cc7f09;
 }
 
 nav button{
@@ -100,7 +104,7 @@ nav input, nav label{
 
   nav label{
     display: inline;
-    position: absolute;
+    position: fixed;
     cursor: pointer;
     margin: 30px 0;
     right: 12%;
@@ -135,6 +139,10 @@ nav input, nav label{
   #checkbox:checked ~ .rightnav{
     transform: translateX(-250px);
     transition: .5s ease-in;
+  }
+
+  #checkbox:checked ~  nav label{
+    position: fixed;
   }
 
   #checkbox:checked ~ .rightnav-overlay {
@@ -250,6 +258,7 @@ h1{
 }
 
 #skills i, #about i{
+  color: #cc7f09;
   font-size: 2.5em;
   margin: 20px 0;
 }
@@ -311,7 +320,7 @@ h1{
 }
 
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
 
   #skills{
     flex-direction: column;
@@ -356,6 +365,20 @@ h1{
 .proj img:hover{
   transform: scale(1.05);
   box-shadow: 0 3px 7px black;
+}
+
+#projects .proj a{
+  color: rgb(0, 0, 0, 0.7);
+}
+
+#projects .proj a:hover{
+  color: #d38525;
+  font-size: 1.05em;
+}
+
+#projects .proj i{
+  font-size: .9em;
+  margin: 0 10px;
 }
 
 @media (max-width: 1100px) {
@@ -458,12 +481,19 @@ p{
   text-align: center;
   margin: 0px auto;
   padding: 80px 0 100px;
-  background: #faf9f0;
+  background-image: url("svgs/contact.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: multiply;
+  background-color: rgb(0, 0, 0, .1);
 }
 
 .contact{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
   text-align: left;
 }
 
@@ -506,7 +536,7 @@ form textarea{
   border-radius: 10px;
   border: 2px solid rgb(0, 0, 0, 0.7);
   outline: none;
-  width: 100%;
+  width: 95%;
   height: 200px;
   padding: 10px;
   font-size: 1.2em;
@@ -542,7 +572,7 @@ form button:hover{
 }
 
 .address {
-  width: 350px;
+  width: 300px;
 }
 
 .address i{
@@ -551,15 +581,26 @@ form button:hover{
 
 .address p{
   text-align: left;
+  padding-left: 20px;
 }
 
 .address a{
   color: black;
+  text-shadow: 0 1px 3px white;
+}
+
+.address i{
+  color: #d38525;
 }
 
 .address a:hover{
   color: #d38525;
   font-weight: bold;
+  text-shadow: none;
+}
+
+.contactimg {
+  display: none;
 }
 
 @media (max-width: 1100px) {
@@ -567,6 +608,8 @@ form button:hover{
   #contact{
     padding: 50px;
     margin: 0;
+    background: none;
+    background-color: #faf9f0;
   }
 
   .contact{
@@ -580,7 +623,14 @@ form button:hover{
   }
 
   .address{
-    margin: 20px auto;
+    margin: 20px 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .address .addy{
+    width: 400px;
   }
 
   form input{
@@ -595,7 +645,37 @@ form button:hover{
     text-align: center;
     margin: 40px auto;
   }
+
+  .contactimg{
+    width: 60%;
+    display: inline;
+  }
+
+  .contactimg img{
+    width: 450px;
+    margin: 20px auto;
+    float: right;
+  }
 }
+
+
+@media (max-width: 990px) {
+
+  .form{
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .nameemail{
+    display: inline-block;
+  }
+
+  form input{
+    width: 300px;
+  }
+
+}
+
 
 @media (max-width: 900px) {
 
@@ -608,13 +688,21 @@ form button:hover{
   }
 
   .address{
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .contactimg{
+    display: none;
   }
 
   #contact{
     text-align: center;
     padding: 50px 0;
     margin-bottom: 0;
+    background-image: url("svgs/contact.png");
+    background-blend-mode: multiply;
+    background-color: rgb(0, 0, 0, .05);
   }
 
 }
@@ -630,11 +718,11 @@ form button:hover{
   }
 
   form input{
-    width: 90%;
+    width: 95%;
   }
 
   form textarea{
-    width: 90%;
+    width: 95%;
     height: 150px;
   }
 
@@ -656,16 +744,25 @@ footer p{
   margin: 30px;
 }
 
+footer img{
+  width: 10%;
+  border-radius: 100px;
+}
+
 footer i{
   color: white;
   margin: 10px 20px;
   font-size: 2rem;
 }
 
+footer i:hover{
+  color: #d38525;
+}
+
 @media (max-width: 900px) {
 
   footer{
-    padding: 50px 30px;
+    padding: 50px 0;
   }
 
 }

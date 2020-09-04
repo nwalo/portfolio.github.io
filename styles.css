@@ -116,6 +116,14 @@ nav input, nav label{
     font-size: 2.2em;
   }
 
+  nav label i{
+    color: #d38525;
+  }
+
+  nav label i:hover{
+    color: rgb(0, 0, 0, 0.7);
+  }
+
   .rightnav{
     display: flex;
     background-color: rgb(0, 0, 0, 0.7);
@@ -696,14 +704,14 @@ form button:hover{
     display: none;
   }
 
-  /* #contact{
+  #contact{
     text-align: center;
     padding: 50px 0;
     margin-bottom: 0;
     background-image: url("svgs/contact.png");
     background-blend-mode: multiply;
     background-color: rgb(0, 0, 0, .05);
-  } */
+  }
 
 }
 
